@@ -44,14 +44,18 @@
             color: #fff;
         }
         .dark-mode header, .dark-mode footer {
-            background-color: #444;
+            background-color: #444; /* Dark gray background for footer */
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
         }
         .dark-mode main {
             background-color: #555; /* Darker background for main content */
             border-color: #555; /* Dark mode border color */
         }
         .dark-mode .social-buttons a {
-            background-color: #555; /* Dark blue for buttons */
+            background-color: #555; /* Dark blue background for social buttons */
+            border-color: #555; /* Dark mode border color for social buttons */
         }
         .dark-mode a {
             color: #0af; /* Cyan link color for contrast */
@@ -78,7 +82,7 @@
             padding: 0.75rem 1.5rem;
             border-radius: 5px;
             font-size: 1.1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
             border: 1px solid #87CEEB; /* Sky blue border */
         }
         .social-buttons a:hover {
