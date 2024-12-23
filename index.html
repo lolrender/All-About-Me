@@ -23,35 +23,7 @@
             position: sticky;
             top: 0;
             z-index: 10;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
         }
-        header nav {
-            display: flex;
-            gap: 1rem;
-        }
-        header nav a {
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-        header nav a:hover {
-            color: #005f6b;
-        }
-        
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 5px;
-            background-color: #87CEEB;
-            z-index: 1000;
-            transition: width 0.25s ease-out;
-        }
-
         main {
             margin: 2rem auto;
             max-width: 800px;
@@ -75,6 +47,8 @@
         .dark-mode footer {
             background-color: #444; /* Dark gray background for header & footer */
             color: #fff;
+            text-align: center;
+            padding: 1rem;
         }
         .dark-mode main {
             background-color: #555; /* Darker background for main content */
@@ -117,28 +91,11 @@
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
         }
 
-        .contact-form {
-            margin-top: 2rem;
-            text-align: left;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 0.5rem;
-            margin-bottom: 1rem;
-            border: 1px solid #87CEEB;
-            border-radius: 5px;
-        }
-        .contact-form button {
-            background-color: #87CEEB;
-            color: white;
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .contact-form button:hover {
-            background-color: #005f6b;
+        /* Scroll Effects */
+        .scroll-fade {
+            transform: translateY(0);
+            transition: all 1s ease-in-out;
+            opacity: 1; /* Always visible */
         }
 
         /* Fade-In Keyframes */
@@ -171,60 +128,84 @@
     </style>
 </head>
 <body>
-    <div class="progress-bar"></div>
     <header>
-        <h1>My Stylish Webpage</h1>
-        <nav>
-            <a href="#about">About Me</a>
-            <a href="#socials">Socials</a>
-            <a href="#contact">Contact</a>
-        </nav>
+        <h1>Welcome to My Stylish Webpage!</h1>
+        <label class="switch">
+            <input type="checkbox" id="darkModeToggle">
+            <span class="slider round"></span>
+        </label>
+        <span>Dark Mode</span>
     </header>
     <main>
-        <h2>Welcome!</h2>
-        <p>Hello! I'm a 14-year-old passionate about web development. Explore my page to learn more!</p>
-    </main>
-    <section id="about">
-        <h3>About Me</h3>
-        <p>I'm an aspiring developer who loves coding and creating unique websites.</p>
-    </section>
-    <section id="socials">
-        <h3>Follow Me:</h3>
-        <div class="social-buttons">
-            <a href="https://youtube.com" target="_blank">🎥 YouTube</a>
-            <a href="https://github.com" target="_blank">🐱 GitHub</a>
-        </div>
-    </section>
-    <section id="contact">
-        <h3>Contact Me</h3>
-        <form class="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" rows="5"></textarea>
-            <button type="submit">Send</button>
-        </form>
-    </section>
-    <footer>
-        <p>&copy; 2024 Stylish Webpage</p>
-    </footer>
-    <script>
-        // Scroll Progress Bar
-        const progressBar = document.querySelector('.progress-bar');
-        window.addEventListener('scroll', () => {
-            const scrollPosition = window.scrollY;
-            const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollPercentage = (scrollPosition / documentHeight) * 100;
-            progressBar.style.width = scrollPercentage + '%';
-        });
+        <h2 class="scroll-fade">Hi, I'm a 14-Year-Old Aspiring Web Developer!</h2>
+        <p class="scroll-fade">My name is [Your Name], and I love creating cool websites like this one. I'm just getting started with web development, but I'm excited to learn HTML, CSS, and JavaScript.</p>
+        <p class="scroll-fade">This page now has a sky blue theme, dark mode toggle, and animations!</p>
 
-        // Back-to-Top Button
+        <!-- About Me Section -->
+        <section class="about-me scroll-fade">
+            <h3>About Me</h3>
+            <p>Hello! I'm a 14-year-old passionate about web development. I enjoy coding, designing, and learning new technologies. My goal is to build interactive and creative web projects that others can enjoy. In my free time, I love experimenting with different designs and learning more about web development tools like HTML, CSS, and JavaScript.</p>
+        </section>
+    </main>
+    
+    <!-- Social Buttons with Emojis -->
+    <div class="social-container scroll-fade">
+        <h3>Check Out My Socials:</h3>
+        <div class="social-buttons">
+            <a href="https://youtube.com" target="_blank">
+                🎥 YouTube
+            </a>
+            <a href="https://github.com" target="_blank">
+                🐱 GitHub
+            </a>
+            <a href="https://discord.com" target="_blank">
+                💬 Discord
+            </a>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">↑</div>
+
+    <footer>
+        <p>&copy; 2024 My Stylish Webpage | Made with ❤️ by a 14-year-old developer</p>
+    </footer>
+
+    <script>
+        // JavaScript for Scroll Animations
+        const scrollElements = document.querySelectorAll('.scroll-fade');
         const backToTopButton = document.querySelector('.back-to-top');
-        window.addEventListener('scroll', () => {
+        
+        const scrollAnimation = () => {
+            scrollElements.forEach((el) => {
+                const elementTop = el.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (elementTop < windowHeight - 100) {
+                    el.classList.add('scroll-animate');
+                }
+            });
+
+            // Show/hide Back to Top button
             if (window.scrollY > 200) {
                 backToTopButton.style.display = 'block';
             } else {
                 backToTopButton.style.display = 'none';
             }
+        };
+
+        window.addEventListener('scroll', scrollAnimation);
+        window.addEventListener('load', scrollAnimation);
+
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        darkModeToggle.addEventListener('change', () => {
+            document.body.classList.toggle('dark-mode', darkModeToggle.checked);
+        });
+
+        // Back to Top Functionality
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
