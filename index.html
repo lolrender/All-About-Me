@@ -14,6 +14,7 @@
             padding: 0;
             animation: fadeIn 1.5s ease-in-out;
             scroll-behavior: smooth;
+            cursor: url('https://cdn-icons-png.flaticon.com/512/64/64480.png'), auto; /* Custom cursor */
         }
         header {
             background-color: #87CEEB; /* Sky Blue */
@@ -34,7 +35,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        h1, h2, p {
+        h1, h2, h3, p {
             margin: 1rem 0;
         }
 
@@ -60,23 +61,37 @@
             background-color: #555; /* Darker background for main content */
             border-color: #555; /* Dark mode border color */
         }
-        .dark-mode .social-buttons a {
-            background-color: #555; /* Dark blue background for social buttons */
-            border-color: #555; /* Dark mode border color for social buttons */
-        }
         .dark-mode a {
             color: #0af; /* Cyan link color for contrast */
         }
 
-        .social-container {
-            margin: 2rem auto;
-            text-align: center;
-        }
-        .social-buttons {
+        /* Portfolio Section */
+        .portfolio-container {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             gap: 1rem;
-            margin-top: 1rem;
+        }
+
+        .portfolio-item {
+            width: 200px;
+            border: 1px solid #87CEEB;
+            border-radius: 8px;
+            padding: 1rem;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .portfolio-item h4 {
+            margin: 0.5rem 0;
+        }
+
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+            border-radius: 8px;
         }
         .social-buttons a {
             display: flex;
@@ -90,46 +105,6 @@
             border-radius: 5px;
             font-size: 1.1rem;
             transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-            border: 1px solid #87CEEB; /* Sky blue border */
-        }
-        .social-buttons a:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Scroll Effects */
-        .scroll-fade {
-            transform: translateY(0);
-            transition: all 1s ease-in-out;
-            opacity: 1; /* Always visible */
-        }
-
-        /* Fade-In Keyframes */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background-color: #87CEEB;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 50%;
-            display: none;
-            cursor: pointer;
-            z-index: 1000;
-            transition: all 0.3s ease-in-out;
-        }
-        .back-to-top:hover {
-            background-color: #005f6b;
         }
     </style>
 </head>
@@ -144,73 +119,49 @@
     </header>
     <main>
         <h2 class="scroll-fade">Hi, I'm a 14-Year-Old Aspiring Web Developer!</h2>
-        <p class="scroll-fade">My name is [Your Name], and I love creating cool websites like this one. I'm just getting started with web development, but I'm excited to learn HTML, CSS, and JavaScript.</p>
+        <p class="scroll-fade">Check out my latest creations and see where you can find me!</p>
 
-        <!-- About Me Section -->
-        <section class="about-me scroll-fade">
-            <h3>About Me</h3>
-            <p>Hello! I'm a 14-year-old passionate about web development. I enjoy coding, designing, and learning new technologies. My goal is to build interactive and creative web projects that others can enjoy. In my free time, I love experimenting with different designs and learning more about web development tools like HTML, CSS, and JavaScript.</p>
+        <!-- Portfolio Section -->
+        <section id="portfolio">
+            <h3>My Projects</h3>
+            <div class="portfolio-container">
+                <div class="portfolio-item">
+                    <h4>Portfolio Item 1</h4>
+                    <p>A description of Project 1.</p>
+                </div>
+                <div class="portfolio-item">
+                    <h4>Portfolio Item 2</h4>
+                    <p>A description of Project 2.</p>
+                </div>
+            </div>
         </section>
-    </main>
-    
-    <!-- Social Buttons with Emojis -->
-    <div class="social-container scroll-fade">
-        <h3>Check Out My Socials:</h3>
-        <div class="social-buttons">
-            <a href="https://youtube.com" target="_blank">
-                🎥 YouTube
-            </a>
-            <a href="https://github.com" target="_blank">
-                🐱 GitHub
-            </a>
-            <a href="https://discord.com" target="_blank">
-                💬 Discord
-            </a>
+
+        <!-- Map Section -->
+        <section id="map">
+            <h3>Where to Find Me</h3>
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434508616!2d144.95373631563386!3d-37.81627944202108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf0727cda8af3cfa1!2sFederation%20Square!5e0!3m2!1sen!2sau!4v1611276541739!5m2!1sen!2sau" 
+                allowfullscreen="" loading="lazy">
+            </iframe>
+        </section>
+
+        <!-- Social Buttons -->
+        <div class="social-container">
+            <h3>Check Out My Socials:</h3>
+            <div class="social-buttons">
+                <a href="https://youtube.com" target="_blank">🎥 YouTube</a>
+                <a href="https://github.com" target="_blank">🐱 GitHub</a>
+                <a href="https://discord.com" target="_blank">💬 Discord</a>
+            </div>
         </div>
-    </div>
-
-    <!-- Back to Top Button -->
-    <div class="back-to-top">↑</div>
-
+    </main>
     <footer>
         <p>&copy; 2024 My Stylish Webpage | Made with ❤️ by a 14-year-old developer</p>
     </footer>
-
     <script>
-        // JavaScript for Scroll Animations
-        const scrollElements = document.querySelectorAll('.scroll-fade');
-        const backToTopButton = document.querySelector('.back-to-top');
-        
-        const scrollAnimation = () => {
-            scrollElements.forEach((el) => {
-                const elementTop = el.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-
-                if (elementTop < windowHeight - 100) {
-                    el.classList.add('scroll-animate');
-                }
-            });
-
-            // Show/hide Back to Top button
-            if (window.scrollY > 200) {
-                backToTopButton.style.display = 'block';
-            } else {
-                backToTopButton.style.display = 'none';
-            }
-        };
-
-        window.addEventListener('scroll', scrollAnimation);
-        window.addEventListener('load', scrollAnimation);
-
-        // Dark Mode Toggle
         const darkModeToggle = document.getElementById('darkModeToggle');
         darkModeToggle.addEventListener('change', () => {
             document.body.classList.toggle('dark-mode', darkModeToggle.checked);
-        });
-
-        // Back to Top Functionality
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
