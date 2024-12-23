@@ -68,8 +68,8 @@
             border-color: #777; /* Border color for portfolio items */
         }
         .dark-mode .social-buttons a {
-            background-color: #555; /* Dark background for social buttons */
-            border-color: #666; /* Darker border for buttons */
+            background-color: #666; /* Darker background for social buttons in dark mode */
+            border-color: #777; /* Darker border for buttons in dark mode */
         }
 
         /* Portfolio Section */
@@ -115,12 +115,12 @@
             gap: 0.5rem;
             text-decoration: none;
             color: white;
-            background-color: #87CEEB; /* Sky Blue */
+            background-color: white; /* Match background to portfolio items */
             padding: 0.75rem 1.5rem;
             border-radius: 5px;
             font-size: 1.1rem;
             transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-            border: 1px solid #87CEEB; /* Sky blue border */
+            border: 1px solid #87CEEB; /* Match border color to portfolio items */
         }
 
         .social-buttons a:hover {
@@ -279,28 +279,23 @@
         function checkGuess() {
             const guessInput = document.getElementById("guessInput");
             const feedback = document.getElementById("feedback");
-            const attemptsDisplay = document.getElementById("attempts");
             const result = document.getElementById("result");
+            const attemptsElement = document.getElementById("attempts");
 
-            let userGuess = Number(guessInput.value);
+            const userGuess = parseInt(guessInput.value);
             attempts++;
 
             if (userGuess === randomNumber) {
-                feedback.textContent = "Congratulations! You guessed the correct number!";
-                result.textContent = `It took you ${attempts} attempts.`;
-                result.style.color = "green";
-                attemptsDisplay.textContent = '';
-                randomNumber = Math.floor(Math.random() * 100) + 1; // Reset game with new number
-                attempts = 0;
+                result.textContent = `Congrats! You guessed the number in ${attempts} attempts!`;
+                feedback.textContent = "";
+                attemptsElement.textContent = "";
+            } else if (userGuess > randomNumber) {
+                feedback.textContent = "Too high! Try again.";
             } else if (userGuess < randomNumber) {
-                feedback.textContent = "Too low! Try again!";
-                result.textContent = '';
-                attemptsDisplay.textContent = `Attempts: ${attempts}`;
-            } else {
-                feedback.textContent = "Too high! Try again!";
-                result.textContent = '';
-                attemptsDisplay.textContent = `Attempts: ${attempts}`;
+                feedback.textContent = "Too low! Try again.";
             }
+
+            attemptsElement.textContent = `Attempts: ${attempts}`;
         }
     </script>
 </body>
