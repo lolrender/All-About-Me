@@ -14,6 +14,7 @@
             padding: 0;
             animation: fadeIn 1.5s ease-in-out;
             scroll-behavior: smooth;
+            transition: background-color 0.5s ease;
         }
         header {
             background-color: #87CEEB;
@@ -24,6 +25,7 @@
             top: 0;
             z-index: 10;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.5s ease;
         }
         header h1 {
             margin: 0;
@@ -38,6 +40,7 @@
             border: 3px solid #87CEEB;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.5s ease, color 0.5s ease;
         }
         h1, h2, h3, p {
             margin: 1rem 0;
@@ -48,6 +51,7 @@
             color: white;
             text-align: center;
             padding: 1rem;
+            transition: background-color 0.5s ease;
         }
 
         .dark-mode {
@@ -72,6 +76,10 @@
         .dark-mode .social-buttons a {
             background-color: #666;
             border-color: #777;
+        }
+
+        .dark-mode .feedback, .dark-mode .result {
+            color: white;
         }
 
         /* Smooth Scroll */
@@ -99,12 +107,13 @@
             background-color: white;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
         }
 
         .portfolio-item:hover {
             transform: scale(1.05);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            background-color: #87CEEB;
         }
 
         .portfolio-item h4 {
@@ -136,13 +145,14 @@
             padding: 0.75rem 1.5rem;
             border-radius: 5px;
             font-size: 1.1rem;
-            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s, background-color 0.3s ease;
             border: 1px solid #87CEEB;
         }
 
         .social-buttons a:hover {
             transform: scale(1.1);
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            background-color: #87CEEB;
         }
 
         /* Game Section */
@@ -155,6 +165,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             text-align: center;
+            transition: background-color 0.3s ease;
         }
 
         .dark-mode .game-container {
@@ -187,6 +198,7 @@
             border-radius: 5px;
             cursor: pointer;
             margin-top: 1rem;
+            transition: background-color 0.3s ease;
         }
 
         .dark-mode button {
@@ -288,17 +300,6 @@
         const darkModeToggle = document.getElementById('darkModeToggle');
         darkModeToggle.addEventListener('change', () => {
             document.body.classList.toggle('dark-mode', darkModeToggle.checked);
-        });
-
-        // Scroll Animation
-        const elements = document.querySelectorAll('.scroll-fade');
-        window.addEventListener('scroll', () => {
-            elements.forEach((el) => {
-                const position = el.getBoundingClientRect().top;
-                if (position < window.innerHeight) {
-                    el.classList.add('scroll-fade-visible');
-                }
-            });
         });
 
         // Number Guessing Game Logic
