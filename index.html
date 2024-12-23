@@ -8,87 +8,68 @@
     <style>
         body {
             font-family: "Lexend", sans-serif;
-            background: linear-gradient(45deg, #f0f8ff, #e0f5ff);
+            background-color: #f0f8ff; /* Light sky blue background */
             color: #333;
             margin: 0;
             padding: 0;
             animation: fadeIn 1.5s ease-in-out;
             scroll-behavior: smooth;
-            transition: background-color 0.5s ease;
         }
         header {
-            background-color: #87CEEB;
+            background-color: #87CEEB; /* Sky Blue */
             color: white;
             text-align: center;
             padding: 1.5rem 0;
             position: sticky;
             top: 0;
             z-index: 10;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.5s ease;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2rem;
         }
         main {
             margin: 2rem auto;
-            max-width: 1000px;
-            padding: 2rem;
+            max-width: 800px;
+            padding: 1rem;
             text-align: center;
-            background-color: #e0f5ff;
-            border: 3px solid #87CEEB;
+            background-color: #e0f5ff; /* Lighter blue */
+            border: 3px solid #87CEEB; /* Sky Blue border */
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.5s ease, color 0.5s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         h1, h2, h3, p {
             margin: 1rem 0;
         }
 
+        /* Footer Styles */
         footer {
-            background-color: #87CEEB;
+            background-color: #87CEEB; /* Sky Blue */
             color: white;
             text-align: center;
             padding: 1rem;
-            transition: background-color 0.5s ease;
         }
 
+        /* Dark Mode */
         .dark-mode {
             background-color: #333;
             color: #fff;
         }
         .dark-mode header, 
         .dark-mode footer {
-            background-color: #444;
+            background-color: #444; /* Dark gray background for header & footer */
             color: #fff;
         }
         .dark-mode main {
-            background-color: #555;
-            border-color: #777;
+            background-color: #555; /* Darker background for main content */
+            border-color: #555; /* Dark mode border color */
         }
-
+        .dark-mode a {
+            color: #0af; /* Cyan link color for contrast */
+        }
         .dark-mode .portfolio-item {
-            background-color: #666;
-            border-color: #777;
+            background-color: #666; /* Darker background for portfolio items */
+            border-color: #777; /* Border color for portfolio items */
         }
-
         .dark-mode .social-buttons a {
-            background-color: #666;
-            border-color: #777;
-        }
-
-        .dark-mode .feedback, .dark-mode .result {
-            color: white;
-        }
-
-        /* Smooth Scroll */
-        .scroll-fade {
-            opacity: 0;
-            transition: opacity 1s;
-        }
-        .scroll-fade-visible {
-            opacity: 1;
+            background-color: #666; /* Darker background for social buttons in dark mode */
+            border-color: #777; /* Darker border for buttons in dark mode */
         }
 
         /* Portfolio Section */
@@ -107,13 +88,6 @@
             background-color: white;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-        }
-
-        .portfolio-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            background-color: #87CEEB;
         }
 
         .portfolio-item h4 {
@@ -131,7 +105,7 @@
         .social-buttons {
             display: flex;
             justify-content: space-evenly;
-            gap: 2rem;
+            gap: 2rem; /* Adds spacing between buttons */
         }
 
         .social-buttons a {
@@ -141,18 +115,17 @@
             gap: 0.5rem;
             text-decoration: none;
             color: white;
-            background-color: white;
+            background-color: white; /* Match background to portfolio items */
             padding: 0.75rem 1.5rem;
             border-radius: 5px;
             font-size: 1.1rem;
-            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s, background-color 0.3s ease;
-            border: 1px solid #87CEEB;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            border: 1px solid #87CEEB; /* Match border color to portfolio items */
         }
 
         .social-buttons a:hover {
             transform: scale(1.1);
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-            background-color: #87CEEB;
         }
 
         /* Game Section */
@@ -164,13 +137,11 @@
             border: 2px solid #87CEEB;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            transition: background-color 0.3s ease;
         }
 
         .dark-mode .game-container {
-            background-color: #666;
-            border-color: #777;
+            background-color: #666; /* Darker background for the game container in dark mode */
+            border-color: #777; /* Darker border for game container in dark mode */
         }
 
         input[type="number"] {
@@ -184,9 +155,9 @@
         }
 
         .dark-mode input[type="number"] {
-            border-color: #777;
-            background-color: #555;
-            color: #fff;
+            border-color: #777; /* Darker border for input in dark mode */
+            background-color: #555; /* Darker background for input in dark mode */
+            color: #fff; /* White text in dark mode */
         }
 
         button {
@@ -198,11 +169,10 @@
             border-radius: 5px;
             cursor: pointer;
             margin-top: 1rem;
-            transition: background-color 0.3s ease;
         }
 
         .dark-mode button {
-            background-color: #555;
+            background-color: #555; /* Darker background for button in dark mode */
         }
 
         button:hover {
@@ -228,7 +198,7 @@
         }
 
         .dark-mode .attempts {
-            color: #fff;
+            color: #fff; /* White text for attempts in dark mode */
         }
     </style>
 </head>
